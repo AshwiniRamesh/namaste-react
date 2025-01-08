@@ -1,0 +1,7 @@
+#myElement {
+          color: blue;         /* Text color */
+          font-size: 20px;    /* Font size */
+          background-color: lightgrey; /* Background color */
+          padding: 10px;      /* Padding */
+          border: 1px solid black; /* Border */
+      }
