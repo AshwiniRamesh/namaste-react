@@ -1,5 +1,7 @@
-const heading = React.createElement("h1", { id: 'myElement' }, "Hello");
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import { createRoot } from "react-dom/client"; 
+
+const root = createRoot(document.getElementById('root'));
 const siblings = React.createElement("div", {}, [
 React.createElement("p", {}, "Nested tags"),
 React.createElement("p", {}, "Siblings 1"),
