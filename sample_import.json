@@ -1,0 +1,44 @@
+[
+          {
+              "created_at": "2025-01-22T07:09:26.198Z",
+              "email": "testuser54321@gmail.com",
+              "email_verified": true,
+              "family_name": "test",
+              "given_name": "spoovara",
+              "name": "spoovara test",
+              "nickname": "spoovara+show7",
+              "connection": "Username-Password-Authentication",
+              "custom_user_profile": {
+                  "logonId": "testuser54321@gmail.com",
+                  "email": "testuser54321@gmail.com",
+                  "custBpId": "121313",
+                  "orgBpId": "",
+                  "memberId": "12414",
+                  "customerType": "RETAIL"
+              },
+              "picture": "https://s.gravatar.com/avatar/eaa6aae07ac00257125d0a2c6d14b569?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fst.png",
+              "updated_at": "2025-01-22T08:40:53.960Z",
+              "user_id": "auth0|test-DB|2e2",
+              "user_metadata": {
+                  "phoneNumber": "9412345678",
+                  "skipRecaptcha": true,
+                  "email_sent": "Wed, 22 Jan 2025 08:40:08 GMT",
+                  "resendMail_count": 5
+              },
+              "username": "testuser54321",
+              "app_metadata": {
+                  "requireEmailVerification": true,
+                  "custBpId": "121313",
+                  "customerType": "RETAIL",
+                  "logonId": "testuser54321@gmail.com",
+                  "memberId": "12414",
+                  "orgBpId": ""
+              },
+              "last_ip": "20.53.144.128",
+              "last_login": "2025-01-22T08:37:43.571Z",
+              "logins_count": 6,
+              "blocked_for": [],
+              "passkeys": [],
+              "password_hash": "$2a$10$eImiTXuWVyfZZWQ1XI6iOe/0ZpY2uHf1OsiQ7GvV1Kq8A1lG3Hd9K"
+          }
+      ]
