@@ -107,3 +107,19 @@
     cursor: pointer;
     color: blue;
 }
+.shimmer-card{
+  width: 200px;
+  height: 400px;
+  background-color: rgb(161, 157, 157);
+  margin: 20px;
+}
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.login-button{
+  padding: 0 20px;
+  cursor: pointer;
+  color: white;
+  background-color: blue;
+}
