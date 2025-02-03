@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import "../styles/RestaurantMenu.css";
-import { DISH_URL, MENU_URL } from "../utils/constants";
+import { DISH_URL, MENU_URL, ALT_IMG_FOOD } from "../utils/constants";
 import { FaLeaf, FaDrumstickBite } from "react-icons/fa"; // Import icons for Veg and Non-Veg
 import { useParams } from "react-router";
 
 export default function RestaurantMenu() {
-  const {restId} = useParams();
+  const { restId } = useParams();
   const [resInfo, setResInfo] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function RestaurantMenu() {
 
   const fetchData = async () => {
     const url = `${MENU_URL}${restId}`;
-    console.log(url)
+    console.log(url);
     const response = await fetch(url);
     const json = await response.json();
     setResInfo(json.data);
@@ -48,10 +48,15 @@ export default function RestaurantMenu() {
             <div className="carousel">
               {category.itemCards.map((menu, idx) => (
                 <div className="carousel-item" key={idx}>
-                  <img
-                    alt="resto image"
-                    src={DISH_URL + menu.card.info.imageId}
-                  />
+                  {menu.card.info.imageId ? (
+                    <img
+                      alt="img"
+                      src={`${DISH_URL}${menu.card.info.imageId}`}
+                    />
+                  ) : (
+                    <img alt="placeholder" src={ALT_IMG_FOOD} />
+                  )}
+
                   <h4>{menu.card.info.name}</h4>
                   <h4>{menu.card.info.description}</h4>
                   <div className="rating">
