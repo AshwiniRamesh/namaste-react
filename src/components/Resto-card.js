@@ -18,7 +18,7 @@ const ResturantCard = ({ resturant }) => {
       <h5>{resturant.card.card.info.cuisines.join(", ")}</h5>
       <h5>{resturant.card.card.info.costForTwo}</h5>
       <h5>{resturant.card.card.info.totalRatingsString} ratings</h5>
-      <h5 className="star">
+      <h5 className="star-resto-card">
         <span style={{ "paddingLeft": "15px" }}>
           {resturant.card.card.info.avgRating}
         </span>

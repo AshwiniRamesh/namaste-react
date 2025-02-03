@@ -2,6 +2,7 @@ import ResturantCard from "./Resto-card";
 import { resturantsList } from "../utils/sample-resto-data";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 const Body = () => {
   let [restList, setRestList] = useState([]);
   let [searchText, setSearchText] = useState("");
@@ -26,23 +27,32 @@ const Body = () => {
         className="filter"
         style={{
           display: "flex",
-          "justifyContent": "space-between",
+          justifyContent: "space-between",
           margin: "10px",
         }}
       >
-        <input type="text" style={{ width: "50%" }} value={searchText} onChange={
-          (e)=>{
+        <input
+          type="text"
+          style={{ width: "50%" }}
+          value={searchText}
+          onChange={(e) => {
             setSearchText(e.target.value);
-          }
-        }></input>
+          }}
+        ></input>
 
-        <button className="search-btn" onClick={()=>{
-          const list = restList.filter(item=>{
-            console.log( item.card.card.info.name.toLowerCase().includes(searchText.toLocaleLowerCase()));
-            return item.card.card.info.name.toLowerCase().includes(searchText.toLowerCase());
-          })
-          setfilteredRestList(list)
-        }}>Search</button>
+        <button
+          className="search-btn"
+          onClick={() => {
+            const list = restList.filter((item) => {
+              return item.card.card.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
+            });
+            setfilteredRestList(list);
+          }}
+        >
+          Search
+        </button>
 
         <button
           className="filter-btn"
@@ -51,7 +61,6 @@ const Body = () => {
               (item) => item.card.card.info.avgRating >= 4.4
             );
             setRestList(filteredRestList);
-            console.log(restList);
           }}
         >
           Top Rated Restaurants
@@ -59,10 +68,15 @@ const Body = () => {
       </div>
       <div className="rest-container">
         {filteredRestList.map((item) => (
-          <ResturantCard
-            resturant={item}
+          <Link
             key={item.card.card.info.id}
-          ></ResturantCard>
+            to={"restaurants/" + item.card.card.info.id}
+          >
+            <ResturantCard
+              resturant={item}
+              key={item.card.card.info.id}
+            ></ResturantCard>
+          </Link>
         ))}
       </div>
     </div>
