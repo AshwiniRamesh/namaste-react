@@ -1,0 +1,70 @@
+.user-card {
+          display: flex;
+          align-items: center;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          margin: 15px;
+          transition: transform 0.3s;
+        }
+        
+        .user-card:hover {
+          transform: scale(1.02);
+        }
+        
+        .user-photo {
+          border-radius: 50%;
+          width: 100px; /* Adjust size as needed */
+          height: 100px; /* Adjust size as needed */
+          object-fit: cover;
+          margin-right: 20px;
+        }
+        
+        .user-details {
+          flex: 1; /* Take up remaining space */
+        }
+        
+        .user-name {
+          font-size: 1.8em; /* Increased size for emphasis */
+          color: #333;
+          margin: 0;
+        }
+        
+        .user-location {
+          font-size: 1em;
+          color: #666;
+          margin: 5px 0;
+        }
+        
+        .user-contact {
+          font-size: 0.9em;
+          color: #444;
+          margin: 10px 0;
+        }
+        
+        .user-links {
+          margin-top: 10px;
+        }
+        
+        .user-links a {
+          text-decoration: none;
+          color: #1a73e8; /* Link color */
+          margin-right: 15px; /* Spacing between links */
+          font-weight: bold;
+        }
+        
+        .user-links a:hover {
+          text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+          .user-card {
+            flex-direction: column; /* Stack items on small screens */
+            align-items: flex-start; /* Align items to the start */
+          }
+        
+          .user-photo {
+            margin-bottom: 15px; /* Space below image */
+          }
+        }
