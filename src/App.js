@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy,Suspense} from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
@@ -12,6 +12,10 @@ import Contact from "./components/ContactUs";
 import Home from "./components/Home";
 import Error from "./components/Error";
 import Restaurant from "./components/RestuarantMenu";
+// import Grocery from "./components/Grocery"; // normal import
+
+//lazy loading
+const Grocery = lazy(() => import("./components/Grocery")); 
 
 const AppLayout = () => {
   return (
@@ -33,8 +37,9 @@ const appRouter = createBrowserRouter([
       { path: "/about-class-component", element: <AboutParentClassComponent /> },
       { path: "/contact", element: <Contact /> },
       { path: "/home", element: <Home /> },
-      { path: "/Error", element: <Error /> },
+      { path: "/error", element: <Error /> },
       { path: "/restaurants/:restId", element: <Restaurant /> },
+      { path: "/grocery", element: <Suspense fallback={<h1>Show this untill Grocery bundle is loaded</h1>}><Grocery /></Suspense> },
     ],
   },
 ]);

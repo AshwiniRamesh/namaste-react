@@ -123,3 +123,23 @@
   color: white;
   background-color: blue;
 }
+.online-status {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between dot and text */
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.online {
+  background-color: green;
+}
+
+.offline {
+  background-color: red;
+}

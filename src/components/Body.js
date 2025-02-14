@@ -2,10 +2,12 @@ import ResturantCard from "./Resto-card";
 import { resturantsList } from "../utils/sample-resto-data";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   let [restList, setRestList] = useState([]);
   let [searchText, setSearchText] = useState("");
   let [filteredRestList, setfilteredRestList] = useState();
+  const onlineStatus = useOnlineStatus();
   useEffect(() => {
     fetchData();
   }, []);
@@ -17,6 +19,7 @@ const Body = () => {
     setRestList(json?.data?.cards.slice(3));
     setfilteredRestList(json?.data?.cards.slice(3));
   };
+  if(!onlineStatus) return <h1>You are offline</h1>
   if (restList.length === 0) {
     return <Shimmer />;
   }

@@ -4,7 +4,9 @@ import "../styles/RestaurantMenu.css";
 import { DISH_URL, MENU_URL, ALT_IMG_FOOD } from "../utils/constants";
 import { FaLeaf, FaDrumstickBite } from "react-icons/fa"; // Import icons for Veg and Non-Veg
 import { useParams } from "react-router";
-import useFetchResturantMenu from "../utils/useFetchResturantMenu"
+import useFetchResturantMenu from "../utils/useFetchResturantMenu";
+
+
 export default function RestaurantMenu() {
   const { restId } = useParams();
   const resInfo = useFetchResturantMenu(restId);
