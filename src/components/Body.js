@@ -1,4 +1,4 @@
-import ResturantCard from "./Resto-card";
+import {ResturantCard,withPromotedLabel} from "./Resto-card";
 import { resturantsList } from "../utils/sample-resto-data";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -9,6 +9,7 @@ const Body = () => {
   let [searchText, setSearchText] = useState("");
   let [filteredRestList, setfilteredRestList] = useState();
   const onlineStatus = useOnlineStatus();
+  const ResturantCardPromoted = withPromotedLabel(ResturantCard);
 
   useEffect(() => {
     fetchData();
@@ -56,7 +57,7 @@ const Body = () => {
             const filteredRestList = restList.filter(
               (item) => item.card.card.info.avgRating >= 4.4
             );
-            setRestList(filteredRestList);
+            setfilteredRestList(filteredRestList);
           }}
         >
           Top Rated Restaurants
@@ -65,7 +66,8 @@ const Body = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredRestList.map((item) => (
-          <ResturantCard resturant={item} key={item.card.card.info.id} />
+          item.card.card.info.promoted ? (<ResturantCardPromoted resturant={item} key={item.card.card.info.id}  />) :
+         ( <ResturantCard resturant={item} key={item.card.card.info.id} />)
         ))}
       </div>
     </div>

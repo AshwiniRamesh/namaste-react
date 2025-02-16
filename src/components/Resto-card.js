@@ -25,4 +25,17 @@ const ResturantCard = ({ resturant }) => {
   );
 };
 
-export default ResturantCard;
+const withPromotedLabel = (ResturantCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-md shadow-md">
+          Promoted
+        </span>
+        <ResturantCard {...props} />
+      </div>
+    );
+  };
+};
+
+module.exports = { ResturantCard, withPromotedLabel };
