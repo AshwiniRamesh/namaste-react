@@ -9,7 +9,7 @@ import {
 } from "react-router";
 import {AboutParentClassComponent,About} from "./components/AboutUs";
 import Contact from "./components/ContactUs";
-import Home from "./components/Home";
+import Cart from "./components/Cart";
 import Error from "./components/Error";
 import Restaurant from "./components/RestuarantMenu";
 // import Grocery from "./components/Grocery"; // normal import
@@ -36,9 +36,10 @@ const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/about-class-component", element: <AboutParentClassComponent /> },
       { path: "/contact", element: <Contact /> },
-      { path: "/home", element: <Home /> },
+      { path: "/home", element: <Body /> },
       { path: "/error", element: <Error /> },
       { path: "/restaurants/:restId", element: <Restaurant /> },
+      { path: "/cart", element: <Cart /> },
       { path: "/grocery", element: <Suspense fallback={<h1>Show this untill Grocery bundle is loaded</h1>}><Grocery /></Suspense> },
     ],
   },
