@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import MenuItem from "./MenuItem";
 
-const CategorySection = ({ category, defaultOpen,showItems }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-
+const CategorySection = ({ category, isOpen, onToggle }) => {
   return (
     <div className="mb-6 border rounded-lg shadow-md bg-white overflow-hidden">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="w-full flex justify-between items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 transition-all"
       >
         <h3 className="text-lg font-semibold">{category.title}</h3>

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router";
 import useFetchResturantMenu from "../utils/useFetchResturantMenu";
@@ -23,6 +23,8 @@ export default function RestaurantMenu() {
     );
   }, [resInfo]);
 
+  const [openCategoryIndex, setOpenCategoryIndex] = useState(null);
+
   if (!resInfo) return <Shimmer />;
 
   return (
@@ -33,11 +35,14 @@ export default function RestaurantMenu() {
       </p>
       <div>
         {menuCategories.map((category, index) => (
-          <CategorySection 
-          key={index} 
-          showItems={false}
-          category={category} 
-          defaultOpen={index === 0} />
+          <CategorySection
+            key={index}
+            category={category}
+            isOpen={openCategoryIndex === index}
+            onToggle={() =>
+              setOpenCategoryIndex(openCategoryIndex === index ? null : index)
+            }
+          />
         ))}
       </div>
     </div>
