@@ -1,8 +1,9 @@
 import {ResturantCard,withPromotedLabel} from "./Resto-card";
 import { resturantsList } from "../utils/sample-resto-data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   let [restList, setRestList] = useState([]);
@@ -10,6 +11,7 @@ const Body = () => {
   let [filteredRestList, setfilteredRestList] = useState();
   const onlineStatus = useOnlineStatus();
   const ResturantCardPromoted = withPromotedLabel(ResturantCard);
+  const {loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -51,17 +53,10 @@ const Body = () => {
           Search
         </button>
 
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
-          onClick={() => {
-            const filteredRestList = restList.filter(
-              (item) => item.card.card.info.avgRating >= 4.4
-            );
-            setfilteredRestList(filteredRestList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="search m-4 p-4 flex item center">
+          <label>UserName: </label>
+          <input className="border border-balck p-2"  value = {loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
+          </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

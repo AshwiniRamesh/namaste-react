@@ -1,7 +1,7 @@
 const { createContext } = require("react");
 
 const UserContext = createContext({
-          loggedInUser:"Default user"
+loggedInUser:"FromContext"
 })
 
 export default UserContext;

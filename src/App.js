@@ -1,4 +1,4 @@
-import React, {lazy,Suspense} from "react";
+import React, {lazy,Suspense, useState, useEffect} from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
@@ -12,17 +12,31 @@ import Contact from "./components/ContactUs";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
 import Restaurant from "./components/RestuarantMenu";
+import UserContext from "./utils/userContext";
 // import Grocery from "./components/Grocery"; // normal import
 
 //lazy loading
 const Grocery = lazy(() => import("./components/Grocery")); 
 
+
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name:"FromApp"
+    }
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
+    <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
+    <div>
+    <UserContext.Provider value={{loggedInUser:userName}}>
+    {/* <UserContext.Provider value={{loggedInUser:"FromHeader"}}> */} // if you want to hard code value
       <Header />
+      </UserContext.Provider>
       <Outlet />
     </div>
+    </UserContext.Provider>
   );
 };
 
