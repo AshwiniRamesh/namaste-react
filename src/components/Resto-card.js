@@ -20,7 +20,8 @@ const ResturantCard = ({ resturant }) => {
       <h5 className="text-gray-600">{resturant.card.card.info.cuisines.join(", ")}</h5>
       <h5 className="text-gray-600">{resturant.card.card.info.costForTwo}</h5>
       <h5 className="text-gray-600">{resturant.card.card.info.totalRatingsString} ratings</h5>
-      <h5 className="text-yellow-500 font-bold">⭐ {resturant.card.card.info.avgRating}</h5>
+      <h5 className="text-yellow-500 font-bold">⭐ {resturant.card.card.info.avgRating}</h5> 
+      
     </div>
   );
 };

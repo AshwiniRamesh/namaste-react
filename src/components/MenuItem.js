@@ -1,9 +1,15 @@
 import React from "react";
 import { FaLeaf, FaDrumstickBite } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { DISH_URL, ALT_IMG_FOOD } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const MenuItem = ({ menu }) => {
   const vegClass = menu.isVeg ? "bg-green-500" : "bg-red-500";
+  const dispatch = useDispatch();
+  const handleAddItem = (item)=>{
+dispatch(addItem(item));
+  };
   return (
     <div className="p-4 shadow-md rounded-lg bg-white flex flex-col items-center">
       <img
@@ -31,6 +37,11 @@ const MenuItem = ({ menu }) => {
         {menu.isVeg ? <FaLeaf className="mr-1" /> : <FaDrumstickBite className="mr-1" />}
         {menu.isVeg ? "Veg" : "Non-Veg"}
       </h4>
+      {/* Add to Cart Button */}
+      <button className="mt-2 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+      onClick={() => handleAddItem(menu.name)}>
+        Add to Cart
+      </button>
     </div>
   );
 };
