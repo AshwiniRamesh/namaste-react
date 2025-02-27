@@ -39,7 +39,7 @@ dispatch(addItem(item));
       </h4>
       {/* Add to Cart Button */}
       <button className="mt-2 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
-      onClick={() => handleAddItem(menu.name)}>
+      onClick={() => handleAddItem(menu)}>
         Add to Cart
       </button>
     </div>

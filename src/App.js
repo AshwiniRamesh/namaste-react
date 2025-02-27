@@ -31,7 +31,7 @@ const AppLayout = () => {
         <div>
           {/* <UserContext.Provider value={{ loggedInUser: userName }}> */}
             {/* <UserContext.Provider value={{loggedInUser:"FromHeader"}}> */}{" "}
-            // if you want to hard code value
+            {/* if you want to hard code value */}
             <Header />
           {/* </UserContext.Provider> */}
           <Outlet />
